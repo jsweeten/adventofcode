@@ -10,8 +10,6 @@ A present with dimensions 2x3x4 requires 2*6 + 2*12 + 2*8 = 52 square feet of wr
 A present with dimensions 1x1x10 requires 2*1 + 2*10 + 2*10 = 42 square feet of wrapping paper plus 1 square foot of slack, for a total of 43 square feet.
 All numbers in the elves' list are in feet. How many total square feet of wrapping paper should they order?
 
-The first half of this puzzle is complete! It provides one gold star: *
-
 --- Part Two ---
 
 The elves are also running low on ribbon. Ribbon is all the same width, so they only have to worry about the length they need to order, which they would again like to be exact.
