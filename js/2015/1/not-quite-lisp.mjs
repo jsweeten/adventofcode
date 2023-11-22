@@ -37,5 +37,7 @@ for (let i = 0; i < data.length; i++) {
         let position = i + 1;
         console.log(`Position: ${position}`);
         break;
+
+        // Answer: 1795
     }
 }
