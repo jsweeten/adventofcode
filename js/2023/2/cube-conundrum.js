@@ -1,5 +1,4 @@
 const fs = require('fs');
-const path = require('path');
 
 const GAME_CONSTRAINTS = {
     red: 12, green: 13, blue: 14
@@ -44,7 +43,6 @@ function analyzeRounds(game) {
 
 function analyzeMinimumDice(game) {  
     let minimumDicePossible = new Round(0,0,0);
-    
     game.rounds.forEach(round => {
         let matches = round.match(pattern);
         let currentRound = sortColors(matches);
@@ -65,12 +63,10 @@ function analyzeMinimumDice(game) {
 }
 
 function sortColors(diceData) {
-
     let currentRound = new Round(0, 0, 0);
     let i = 0;
     while (i < diceData.length) {
         let [amt, color] = diceData[i].split(' ');
-
         switch (color) {
             case 'red':
                 currentRound.red = parseInt(amt);
@@ -106,19 +102,10 @@ const sum = (data = [], part1 = true) => {
     return total;
 }
 
-if (process.argv.length < 3) {
-    console.log(
-        `Usage: ${path.basename(process.argv[0])} ${path.basename(
-            process.argv[1],)} <input_file> [part1=true]`,
-    );
-    process.exit(1);
-}
-
 const filename = process.argv[2];
 const part1 = process.argv[3] === 'true' || process.argv[3] === '1';
 const data = fs.readFileSync(filename, 'utf-8').split(/\r?\n/);
 const output = sum(data, part1);
 console.log(`Output: ${output}`);
-
 // Part 1 Answer: 2716
 // Part 2 Answer: 72227
