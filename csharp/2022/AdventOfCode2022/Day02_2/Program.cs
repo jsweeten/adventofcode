@@ -2,8 +2,7 @@
 {
     private static void Main()
     {
-        List<int> elves = new();
-        int current = 0;
+        int score = 0;
         string line;
 
         try
@@ -13,20 +12,61 @@
 
             while (line != null)
             {
-                if (string.IsNullOrWhiteSpace(line))
+                switch (line[0])
                 {
-                    elves.Add(current);
-                    current = 0;
-                }
-                else
-                {
-                    var calories = int.Parse(line);
-                    current += calories;
+                    case 'A':
+                        if (line[2] == 'X')
+                        {
+                            score += 3;
+                        }
+                        else if (line[2] == 'Y')
+                        {
+                            score += 1;
+                            score += 3;
+                        }
+                        else if (line[2] == 'Z')
+                        {
+                            score += 2;
+                            score += 6;
+                        }
+                        break;
+                    case 'B':
+                        if (line[2] == 'X')
+                        {
+                            score += 1;
+                        }
+                        else if (line[2] == 'Y')
+                        {
+                            score += 2;
+                            score += 3;
+                        }
+                        else if (line[2] == 'Z')
+                        {
+                            score += 3;
+                            score += 6;
+                        }
+                        break;
+                    case 'C':
+                        if (line[2] == 'X')
+                        {
+                            score += 2;
+                        }
+                        else if (line[2] == 'Y')
+                        {
+                            score += 3;
+                            score += 3;
+                        }
+                        else if (line[2] == 'Z')
+                        {
+                            score += 1;
+                            score += 6;
+                        }
+                        break;
+                    default:
+                        throw new Exception("Improper input!");
                 }
                 line = sr.ReadLine();
             }
-
-            elves.Add(current);
             sr.Close();
         }
         catch (Exception e)
@@ -35,9 +75,7 @@
         }
         finally
         {
-            var total = elves.OrderByDescending(x => x).Take(3).Sum();
-
-            Console.WriteLine("Calories from Top Three Elves: " + total);
+            Console.WriteLine("Total Score: " + score);
             Console.ReadLine();
         }
     }
