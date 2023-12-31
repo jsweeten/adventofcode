@@ -96,14 +96,8 @@ console.log(`Amount fully contained: ${amountFullyContained}`);
 //             }
 //         }
 //     }
-
-    
 //     !firstPairCheck() && secondPairCheck();
 // }
-
 // console.log(`Overlapping Pairs: ${overlappingPairs}`);
-
-
-
 
 // Answer: 839
