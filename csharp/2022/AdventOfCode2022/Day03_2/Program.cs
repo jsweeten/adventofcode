@@ -13,11 +13,9 @@ internal class Program
         {
             var sr = new StreamReader("input.txt");
             
-
             elf1 = sr.ReadLine();
             elf2 = sr.ReadLine();
             elf3 = sr.ReadLine();
-
             var group = new List<string>
             {
                 elf1,
