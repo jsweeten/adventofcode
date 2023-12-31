@@ -1,6 +1,4 @@
-﻿using System.Xml;
-
-internal class Program
+﻿internal class Program
 {
     private static void Main()
     {
