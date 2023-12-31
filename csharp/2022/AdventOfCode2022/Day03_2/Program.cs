@@ -1,38 +1,57 @@
-﻿internal class Program
+﻿using System.Xml;
+
+internal class Program
 {
     private static void Main()
     {
         int score = 0;
-        string line;
+        string elf1;
+        string elf2;
+        string elf3;
 
         try
         {
             var sr = new StreamReader("input.txt");
-            line = sr.ReadLine();
+            
 
-            while (line != null)
+            elf1 = sr.ReadLine();
+            elf2 = sr.ReadLine();
+            elf3 = sr.ReadLine();
+
+            var group = new List<string>
             {
-                int halfLength = line.Count() / 2;
-                string compartment1 = line[..halfLength];
-                string compartment2 = line[halfLength..];
+                elf1,
+                elf2,
+                elf3
+            };
 
-                foreach (char item1 in compartment1)
+            while (group[2] != null)
+            {
+                foreach (char item in elf1)
                 {
-                    if (compartment2.Contains(item1))
+                    if (elf2.Contains(item) && elf3.Contains(item))
                     {
-                        if (Char.IsUpper(item1))
+                        if (Char.IsUpper(item))
                         {
-                            score += (item1 - 38);
+                            score += (item - 38);
                         }
                         else
                         {
-                            score += (item1 - 96);
+                            score += (item - 96);
                         }
                         break;
                     }
                 }
-                line = sr.ReadLine();
-            }
+                elf1 = sr.ReadLine();
+                elf2 = sr.ReadLine();
+                elf3 = sr.ReadLine();
+                group = new List<string>
+                {
+                    elf1,
+                    elf2,
+                    elf3
+                };
+            };
             sr.Close();
         }
         catch (Exception e)
